@@ -9,15 +9,18 @@ intents = nextcord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix="dog ", intents=intents)
 
-@bot.command(name="hi")
+@bot.command(name="!hi")
 async def SendMessage(ctx):
     await ctx.send("Hello!")
 
-@bot.command(name="pic")
+@bot.command(name="!pic")
 async def Dog(ctx):
     response = requests.get("https://dog.ceo/api/breeds/image/random")
     image_link = response.json()["message"]
     await ctx.send(image_link)
+
+@bot.command(name="!anime")
+async def punch(ctx):
 
 @bot.command(name="gif", aliases=["feed", "play", "sleep"])
 async def Gif(ctx):
